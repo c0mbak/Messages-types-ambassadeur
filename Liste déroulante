@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Widget Notion</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    select { padding: 6px; }
+    #message { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h3>Choisissez une étape :</h3>
+  <select id="step">
+    <option value="">-- Sélectionnez --</option>
+    <option value="contact">Prise de contact</option>
+    <option value="relance">Relance</option>
+    <option value="merci">Remerciement</option>
+  </select>
+
+  <div id="message"></div>
+
+  <script>
+    const step = document.getElementById("step");
+    const message = document.getElementById("message");
+
+    step.addEventListener("change", () => {
+      if (step.value === "contact") {
+        message.textContent = "Bonjour, je me permets de vous écrire pour...";
+      } else if (step.value === "relance") {
+        message.textContent = "Je me permets de revenir vers vous concernant...";
+      } else if (step.value === "merci") {
+        message.textContent = "Merci beaucoup pour votre retour 🙏";
+      } else {
+        message.textContent = "";
+      }
+    });
+  </script>
+</body>
+</html>
